@@ -1,0 +1,1 @@
+/home/nacho/.emacs.d/straight/repos/clang-format/clang-format.el
