@@ -8,10 +8,9 @@
 
 (set-frame-font "Cascadia Code PL" nil t)
 
-
-
 ;; Interfaz
 (global-display-line-numbers-mode +1)
+
 
 (setq backup-directory-alist `(("." . "~/.emacs.d/bak")))
 (setq auto-save-file-name-transforms
@@ -126,6 +125,13 @@
   ;; Set bindings (personalizable, claro)
   (global-set-key (kbd "C-z") 'undo-fu-only-undo)
   (global-set-key (kbd "C-S-z") 'undo-fu-only-redo))
+
+
+;;========================
+;; ORG Configs
+;;
+(set-face-attribute 'org-meta-line nil :height 0.8 :slant 'normal)
+
 
 
 
