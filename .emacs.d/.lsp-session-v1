@@ -1,1 +1,0 @@
-#s(lsp-session ("/home/nacho/PPP/chapter7" "/home/nacho/PPP/chapter6" "/home/nacho/PPP/chapter5" "/home/nacho/PPP/chapter4" "/home/nacho/PPP/chapter3") nil #s(hash-table test equal) #s(hash-table test equal) #s(hash-table test equal))
