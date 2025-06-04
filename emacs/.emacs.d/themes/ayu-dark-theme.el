@@ -1,72 +1,163 @@
-;;; ayu-dark-theme.el --- Ayu dark -*- lexical-binding: t; -*-
-
-;; SPDX-License-Identifier: MIT
-
-;; URL: https://github.com/vutran1710/Ayu-Theme-Emacs
-;; Package-Version: 1.0
-;; Package-Requires: ((emacs "24.1"))
-
+;;; ayu-dark --- ayu-dark port for emacs
 ;;; Commentary:
-;; Auy dark
 
-;;; Code:
+(require 'autothemer)
 
-(deftheme ayu-dark
-  "Created 2018-05-06. An emacs-port of the dark verions of the amazing Ayu-theme")
+;; Define custom faces
+(defface ayu-namespace-face
+  nil
+  "Face for namespaces."
+  :group 'ayu-dark)
 
-(custom-theme-set-faces
- 'ayu-dark
- '(default ((t (:foreground "#c3c0bb" :background "#000919" ))))
- '(cursor ((t (:background "DarkOrange1"))))
- '(escape-glyph ((((background dark)) (:foreground "cyan")) (((type pc)) (:foreground "magenta")) (t (:foreground "brown"))))
- '(minibuffer-prompt ((t (:foreground "#9DA5B4"))))
- '(highlight ((t (:background "#3E4451"))))
- '(region ((t (:background "#3E4451"))))
- '(shadow ((((class color grayscale) (min-colors 88) (background light)) (:foreground "grey50")) (((class color grayscale) (min-colors 88) (background dark)) (:foreground "grey70")) (((class color) (min-colors 8) (background light)) (:foreground "green")) (((class color) (min-colors 8) (background dark)) (:foreground "yellow"))))
- '(secondary-selection ((t (:background "#121417"))))
- '(trailing-whitespace ((((class color) (background light)) (:background "red1")) (((class color) (background dark)) (:background "red1")) (t (:inverse-video t))))
- '(font-lock-builtin-face ((t (:foreground "DeepSkyBlue1"))))
- '(font-lock-comment-delimiter-face ((t (:inherit (font-lock-comment-face)))))
- '(font-lock-comment-face ((t (:foreground "#5C6370"))))
- '(font-lock-constant-face ((t (:foreground "#01fcff"))))
- '(font-lock-doc-face ((t (:inherit (font-lock-string-face)))))
- '(font-lock-function-name-face ((t (:foreground "#00bbea"))))
- '(font-lock-keyword-face ((t (:foreground "#ff6503"))))
- '(font-lock-negation-char-face ((t nil)))
- '(font-lock-preprocessor-face ((t (:foreground "#828997"))))
- '(font-lock-regexp-grouping-backslash ((t (:inherit (bold)))))
- '(font-lock-regexp-grouping-construct ((t (:inherit (bold)))))
- '(font-lock-string-face ((t (:slant italic :foreground "#bfe438"))))
- '(font-lock-type-face ((t (:foreground "#eec900"))))
- '(font-lock-variable-name-face ((t (:foreground "#9ba0a9"))))
- '(font-lock-warning-face ((t (:weight bold :foreground "#5C6370"))))
- '(button ((t (:inherit (link)))))
- '(link ((t (:weight bold :underline (:color foreground-color :style line) :foreground "#61AFEF"))))
- '(link-visited ((t (:weight normal :underline (:color foreground-color :style line) :foreground "#61AFEF"))))
- '(fringe ((t (:background "black"))))
- '(header-line ((t (:box nil :foreground "grey90" :background "grey20" :inherit (mode-line)))))
- '(tooltip ((t (:foreground "black" :background "lightyellow" :inherit (variable-pitch)))))
- '(mode-line ((t (:box (:line-width 1 :color "#181A1F" :style nil) :foreground "#9DA5B4" :background "#21252B"))))
- '(mode-line-buffer-id ((t (:weight bold))))
- '(mode-line-emphasis ((t (:weight bold))))
- '(mode-line-highlight ((((class color) (min-colors 88)) (:box (:line-width 2 :color "grey40" :style released-button))) (t (:inherit (highlight)))))
- '(mode-line-inactive ((t (:box (:line-width 1 :color "#181A1F" :style nil) :foreground "#3E4451" :background "#181A1F"))))
- '(isearch ((t (:foreground "#282C34" :background "#C678DD"))))
- '(isearch-fail ((t (:foreground "#BE5046"))))
- '(lazy-highlight ((t (:underline (:color "#C678DD" :style line) :foreground "#C678DD" :background "#121417"))))
- '(match ((((class color) (min-colors 88) (background light)) (:background "yellow1")) (((class color) (min-colors 88) (background dark)) (:background "RoyalBlue3")) (((class color) (min-colors 8) (background light)) (:foreground "black" :background "yellow")) (((class color) (min-colors 8) (background dark)) (:foreground "white" :background "blue")) (((type tty) (class mono)) (:inverse-video t)) (t (:background "gray"))))
- '(next-error ((t (:inherit (region)))))
- '(query-replace ((t (:inherit (isearch)))))
- '(linum-highlight-face ((t (:foreground "gray70"))))
- '(linum ((t (:foreground "gray30")))))
+(defface ayu-operator-face
+  nil
+  "Face for operators."
+  :group 'ayu-dark)
+
+(defface ayu-number-face
+  nil
+  "Face for literal numbers."
+  :group 'ayu-dark)
+
+(defface ayu-function-call-face
+  nil
+  "Face for function calls foo()."
+  :group 'ayu-dark)
 
 
-;;;###autoload
-(and load-file-name
-     (add-to-list 'custom-theme-load-path
-                  (file-name-as-directory
-                   (file-name-directory load-file-name))))
+;; Theme definition
+(autothemer-deftheme
+ ayu-dark "Ayu Dark port for Emacs"
+ ((((class color) (min-colors #xFFFFFF)))
+
+  ;; Palette
+  (ayu-background                "#10141c")
+  (ayu-comment                   "#acb6bf")
+  (ayu-string                    "#aad94c")
+  (ayu-number                    "#d2a6ff")
+  (ayu-variable                  "#d2a6ff")
+  (ayu-keyword                   "#f29668")
+  (ayu-operator                  "#f29668")
+  (ayu-class-type                "#ff8f40")
+  (ayu-preprocessor              "#ff8f40")
+  (ayu-foreground                "#bfbdb6")
+  (ayu-function-name             "#ffb454")
+  (ayu-function-call             "#ffb454")
+  (ayu-constant                  "#39bae6")
+  (ayu-namespace                 "#39bae6")
+
+
+
+  (ayu-punctuation               "#bfbdb6")
+  (ayu-separator                 "#bfbdb6")
+
+;; to remove
+  (ayu-tag                       "#39bae6")
+  (ayu-member-variable           "#f07178")
+  (ayu-entity-name               "#59c2ff")
+  (ayu-library-function          "#f07178")
+  (ayu-accessor                  "#f29668")
+  (ayu-library-constant          "#f29668")
+  (ayu-imports-and-packages      "#aad94c")
+  (ayu-language-variable         "#39bae6")
+  (ayu-library-class-type        "#39bae6")
+  (ayu-invalid                   "#d95757")
+  (ayu-diff-header               "#c594c5")
+
+
+
+  ;; rainbow delimiters
+  
+  (ayu-rainbow-1                 "#FFD706")
+  (ayu-rainbow-2                 "#DA70D6")
+  (ayu-rainbow-3                 "#179FFF")
+  (ayu-rainbow-4                 "#7FDBCA")
+  (ayu-rainbow-5                 "#FFB454")
+  (ayu-rainbow-6                 "#87FFBA")
+  (ayu-rainbow-7                 "#B48EAD")
+  (ayu-rainbow-8                 "#5FD7FF")
+  (ayu-rainbow-9                 "#A1EFE4")
+  
+
+  )
+
+ ;; Faces
+ ((default (:foreground ayu-foreground :background ayu-background))
+  (font-lock-comment-face            (:foreground ayu-comment))
+  (font-lock-string-face             (:foreground ayu-string))
+  (font-lock-doc-face                (:foreground ayu-comment))
+  (font-lock-keyword-face            (:foreground ayu-keyword))
+  (font-lock-function-name-face      (:foreground ayu-function-name))
+  (font-lock-variable-name-face      (:foreground ayu-variable))
+  (font-lock-type-face               (:foreground ayu-class-type))
+  (font-lock-constant-face           (:foreground ayu-constant))
+  (font-lock-warning-face            (:foreground ayu-invalid))
+  (font-lock-preprocessor-face       (:foreground ayu-preprocessor))
+  (ayu-operator-face                 (:foreground ayu-operator))
+  (ayu-namespace-face                (:foreground ayu-namespace))
+  (ayu-number-face                   (:foreground ayu-number))
+  (ayu-function-call-face            (:foreground ayu-function-call))
+
+  (rainbow-delimiters-depth-1-face   (:foreground ayu-rainbow-1))
+  (rainbow-delimiters-depth-2-face   (:foreground ayu-rainbow-2))
+  (rainbow-delimiters-depth-3-face   (:foreground ayu-rainbow-3))
+  (rainbow-delimiters-depth-4-face   (:foreground ayu-rainbow-4))
+  (rainbow-delimiters-depth-5-face   (:foreground ayu-rainbow-5))
+  (rainbow-delimiters-depth-6-face   (:foreground ayu-rainbow-6))
+  (rainbow-delimiters-depth-7-face   (:foreground ayu-rainbow-7))
+  (rainbow-delimiters-depth-8-face   (:foreground ayu-rainbow-8))
+  (rainbow-delimiters-depth-9-face   (:foreground ayu-rainbow-9))
+  
+  ))
+
+
+;; seleccion transparente
+;; reb-match-0
+
 
 (provide-theme 'ayu-dark)
 
-;;; ayu-dark-theme.el ends here
+(defun ayu-highlight-function-call ()
+  "Highlight function call like foo in foo(bar)."
+  (interactive)
+  (font-lock-add-keywords
+   nil
+   '(("\\b\\([a-zA-Z_][a-zA-Z0-9_]*\\)\\s-*(" 1 'ayu-function-call-face)))
+  (font-lock-flush)
+  (font-lock-ensure))
+
+
+(defun ayu-highlight-number ()
+  "Highlight numbers.  Targets integer, floats, trailing f floats and cientific notation (1.2e3 | 2.5E+8f | 4e-2f)."
+  (interactive)
+  (font-lock-add-keywords
+   nil
+   '(("\\b\\([0-9]+\\(?:\\.[0-9]*\\)?\\(?:[eE][+-]?[0-9]+\\)?f?\\)\\b" 1 'ayu-number-face)))
+  (font-lock-flush)
+  (font-lock-ensure))
+
+
+(defun ayu-highlight-namespace ()
+  "Highlight namespaces like std::."
+  (interactive)
+  (font-lock-add-keywords
+   nil
+   '(("\\([A-Za-z_][A-Za-z0-9_]*\\)::" 1 'ayu-namespace-face)))
+  (font-lock-flush)
+  (font-lock-ensure))
+
+(defun ayu-highlight-operators ()
+  "Highlight C-style operators like +, -, *, =, <, >, etc."
+  (interactive)
+  (font-lock-add-keywords
+   nil
+   '(("\\(->\\|==\\|!=\\|<=\\|>=\\|--\\|\\+=\\|-=\\|&&\\|||\\|[-=+*/<>!&|%^~]\\)" 1 'ayu-operator-face prepend)))
+  (font-lock-flush)
+  (font-lock-ensure))
+
+
+
+(add-hook 'prog-mode-hook #'ayu-highlight-function-call)
+(add-hook 'prog-mode-hook #'ayu-highlight-number)
+(add-hook 'prog-mode-hook #'ayu-highlight-namespace)
+(add-hook 'prog-mode-hook #'ayu-highlight-operators)
