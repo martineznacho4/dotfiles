@@ -6,7 +6,7 @@
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 
-(set-frame-font "Cascadia Code PL" nil t)
+(set-frame-font "Cascadia Mono PL" nil t)
 
 ;; Interfaz
 (global-display-line-numbers-mode +1)
