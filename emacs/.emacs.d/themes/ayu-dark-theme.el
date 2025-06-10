@@ -32,7 +32,7 @@
 
   ;; Palette
   (ayu-background                "#10141c")
-  (ayu-comment                   "#acb6bf")
+  (ayu-comment                   "#a3aeb8")
   (ayu-string                    "#aad94c")
   (ayu-number                    "#d2a6ff")
   (ayu-variable                  "#d2a6ff")
@@ -45,11 +45,8 @@
   (ayu-function-call             "#ffb454")
   (ayu-constant                  "#39bae6")
   (ayu-namespace                 "#39bae6")
-
-
-
-  (ayu-punctuation               "#bfbdb6")
-  (ayu-separator                 "#bfbdb6")
+  (ayu-region                    "#122132")
+  (ayu-invalid                   "#d95757")
 
 ;; to remove
   (ayu-tag                       "#39bae6")
@@ -61,8 +58,9 @@
   (ayu-imports-and-packages      "#aad94c")
   (ayu-language-variable         "#39bae6")
   (ayu-library-class-type        "#39bae6")
-  (ayu-invalid                   "#d95757")
+
   (ayu-diff-header               "#c594c5")
+
 
 
 
@@ -71,18 +69,24 @@
   (ayu-rainbow-1                 "#FFD706")
   (ayu-rainbow-2                 "#DA70D6")
   (ayu-rainbow-3                 "#179FFF")
-  (ayu-rainbow-4                 "#7FDBCA")
+  (ayu-rainbow-4                 "#8D25D9")
   (ayu-rainbow-5                 "#FFB454")
-  (ayu-rainbow-6                 "#87FFBA")
-  (ayu-rainbow-7                 "#B48EAD")
-  (ayu-rainbow-8                 "#5FD7FF")
+  (ayu-rainbow-6                 "#009521")
+  (ayu-rainbow-7                 "#D9009A")
+  (ayu-rainbow-8                 "#69002E")
   (ayu-rainbow-9                 "#A1EFE4")
   
 
   )
 
- ;; Faces
+  ;; Faces
  ((default (:foreground ayu-foreground :background ayu-background))
+
+  (ayu-operator-face                 (:foreground ayu-operator))
+  (ayu-namespace-face                (:foreground ayu-namespace))
+  (ayu-number-face                   (:foreground ayu-number))
+  (ayu-function-call-face            (:foreground ayu-function-call))
+
   (font-lock-comment-face            (:foreground ayu-comment))
   (font-lock-string-face             (:foreground ayu-string))
   (font-lock-doc-face                (:foreground ayu-comment))
@@ -93,11 +97,9 @@
   (font-lock-constant-face           (:foreground ayu-constant))
   (font-lock-warning-face            (:foreground ayu-invalid))
   (font-lock-preprocessor-face       (:foreground ayu-preprocessor))
-  (ayu-operator-face                 (:foreground ayu-operator))
-  (ayu-namespace-face                (:foreground ayu-namespace))
-  (ayu-number-face                   (:foreground ayu-number))
-  (ayu-function-call-face            (:foreground ayu-function-call))
+  (region                            (:background ayu-region))
 
+  ;; rainbow delimiters
   (rainbow-delimiters-depth-1-face   (:foreground ayu-rainbow-1))
   (rainbow-delimiters-depth-2-face   (:foreground ayu-rainbow-2))
   (rainbow-delimiters-depth-3-face   (:foreground ayu-rainbow-3))
@@ -107,6 +109,16 @@
   (rainbow-delimiters-depth-7-face   (:foreground ayu-rainbow-7))
   (rainbow-delimiters-depth-8-face   (:foreground ayu-rainbow-8))
   (rainbow-delimiters-depth-9-face   (:foreground ayu-rainbow-9))
+
+  ;; org
+  (org-level-1                       (:foreground ayu-rainbow-1))
+  (org-level-2                       (:foreground ayu-rainbow-2))
+  (org-level-3                       (:foreground ayu-rainbow-3))
+  (org-level-4                       (:foreground ayu-rainbow-4))
+  (org-level-5                       (:foreground ayu-rainbow-5))
+  (org-level-6                       (:foreground ayu-rainbow-6))
+  (org-level-7                       (:foreground ayu-rainbow-7))
+  (org-level-8                       (:foreground ayu-rainbow-8))
   
   ))
 
