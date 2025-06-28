@@ -60,5 +60,6 @@ ignored_classes = [
 ]
 
 [window_nicknames]
+"brave-browser" = "brave"
 # "foo" = "bar"
 # "baz" = "qux"
